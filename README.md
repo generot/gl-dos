@@ -1,7 +1,7 @@
 # Generally Lightweight DOS
 The Generally Lightweight Disk Operating System(GL-DOS, for short) is a simplistic 32-bit operating system with its own bootloader(no GRUB or anything), a pet project of mine.
 
-## Implemented features
+## Implemented and coming features
 The following features are what came off the top of my head at the time of writing this. After that's done, I might work
 on additional(optional) features for the OS, although I will most likely not complicate it much, since I never planned for this to become an actual useful OS.
 
@@ -10,6 +10,7 @@ on additional(optional) features for the OS, although I will most likely not com
 - [x] Switch to Protected mode
 - [x] Protected-mode I/O routines
 - [ ] Basic kernel
+- [ ] Keyboard I/O
 - [ ] Basic graphics
 
 ## How to run

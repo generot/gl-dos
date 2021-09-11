@@ -10,5 +10,5 @@ BIN=bin
 run: $(BIN)/img.bin
 	$(QEMU) -drive format=raw,file=$< -L $(QEMULIB)
 
-img: $(SRC)/boot.s
-	$(ASM) $(AFLAGS) -o $(BIN)/img.bin $< -I $(SRC)
+boot: $(SRC)/boot.s
+	$(ASM) $(AFLAGS) -o $(BIN)/img.bin $< -I $(SRC)/bootsec/
