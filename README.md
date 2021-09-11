@@ -9,8 +9,8 @@ on additional(optional) features for the OS, although I will most likely not com
 - [x] Real-mode I/O routines
 - [x] Switch to Protected mode
 - [x] Protected-mode I/O routines
-- [] Basic kernel
-- [] Basic graphics
+- [ ] Basic kernel
+- [ ] Basic graphics
 
 ## How to run
 To run GL-DOS, you need the following tools:
