@@ -3,7 +3,7 @@
 
 %define BOOT_STACK_TOP 0x8000
 %define KERNEL_ENTRY 0x9000
-%define READ_SECTORS 6
+%define READ_SECTORS 17
 
 ; ----- SECTOR 1: Bootloader -----
 entry:
