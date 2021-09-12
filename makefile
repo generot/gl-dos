@@ -6,12 +6,16 @@ QEMU=qemu-system-x86_64
 
 #Flags
 AFLAGS=-fbin
-CFLAGS=-m32 -nostdlib -ffreestanding -fno-pie
+CFLAGS=-Os -m32 -nostdlib -ffreestanding -fno-pie
+LFLAGS=--oformat=binary -m elf_i386
 
 #Directories
 SRC=src
 BIN=bin
 QEMULIB="C:\Program Files\qemu"
+
+CINCLUDE=$(wildcard $(SRC)/kernel/*.h)
+COBJ=$(patsubst $(SRC)/kernel/%.c, $(BIN)/%.o, $(wildcard $(SRC)/kernel/*.c))
 
 KENTRY_ADDR=0x9000
 
@@ -21,8 +25,8 @@ run: $(BIN)/os.bin
 os: kernel boot
 	cat $(BIN)/boot.bin $(BIN)/kernel.bin > $(BIN)/os.bin
 
-kernel: $(BIN)/kentry.o $(BIN)/kobj.o
-	$(LD) -o $(BIN)/kernel.bin -Ttext $(KENTRY_ADDR) $^ --oformat=binary -m elf_i386
+kernel: $(COBJ)
+	$(LD) -o $(BIN)/kernel.bin -Ttext $(KENTRY_ADDR) $^ $(LFLAGS)
 
 boot: $(SRC)/bootsec/boot.s
 	$(ASM) $(AFLAGS) -o $(BIN)/boot.bin $< -I $(SRC)/bootsec/
@@ -30,10 +34,13 @@ boot: $(SRC)/bootsec/boot.s
 $(BIN)/kentry.o: $(SRC)/kernel/kernel_entry.s
 	$(ASM) -felf32 $< -o $@
 
-$(BIN)/kobj.o: $(SRC)/kernel/kernel.c
+$(BIN)/%.o: $(SRC)/kernel/%.c $(CINCLUDE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: clean
+.PHONY: rmbin rmobj
 
-clean:
-	rm $(BIN)/*.o $(BIN)/*.bin
+rmbin:
+	rm $(BIN)/*.bin
+
+rmobj:
+	rm $(BIN)/*.o

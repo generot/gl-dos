@@ -10,13 +10,14 @@ on additional(optional) features for the OS, although I will most likely not com
 - [x] Switch to Protected mode
 - [x] Protected-mode I/O routines
 - [x] Basic kernel
+- [x] Basic graphics
 - [ ] Write syscalls for the kernel
 - [ ] Keyboard I/O
-- [ ] Basic graphics
 
 ## How to run
 To run GL-DOS, you need the following tools:
 - [GNU Make](https://www.gnu.org/software/make/)
+- [GNU C Compiler]("https://gcc.gnu.org/")
 - [The Netwide Assembler](https://www.nasm.us/)
 - [QEMU](https://www.qemu.org/)
 
