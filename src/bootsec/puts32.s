@@ -4,7 +4,7 @@
 
 %define CHAR_WD 80
 %define CHAR_HT 25
-%define PRINT_LN 10 * CHAR_WD
+%define PRINT_LN 9 * CHAR_WD
 
 ; ebx - base address of the to-be-printed string
 puts32:

@@ -9,7 +9,8 @@ on additional(optional) features for the OS, although I will most likely not com
 - [x] Real-mode I/O routines
 - [x] Switch to Protected mode
 - [x] Protected-mode I/O routines
-- [ ] Basic kernel
+- [x] Basic kernel
+- [ ] Write syscalls for the kernel
 - [ ] Keyboard I/O
 - [ ] Basic graphics
 
