@@ -12,8 +12,8 @@ entry:
 	mov bp, BOOT_STACK_TOP
 	mov sp, bp
 
-	mov bx, MSG
-	call puts
+	;mov bx, MSG
+	;call puts
 
 	call load_os
 	call switch_32
@@ -41,8 +41,8 @@ DRIVE: db 0
 
 [bits 32]
 protected_mode:
-	mov ebx, MSG_PROT_MODE
-	call puts32
+	;mov ebx, MSG_PROT_MODE
+	;call puts32
 
 	call KERNEL_ENTRY
 

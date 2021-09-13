@@ -1,6 +1,16 @@
 #ifndef __GLKERNEL_H__
 #define __GLKERNEL_H__
 
+#define GL_VERSION_MAJOR 0
+#define GL_VERSION_MINOR 4
+
+#define GL_WELCOME_MSG(major, minor)	\
+	"GL-DOS v."#major"."#minor" - Ring 0(Kernel space). "	\
+	"Welcome, hope you have a nice time!"
+
+#define GL_EXPAND_WLC(mj, mn)	\
+	GL_WELCOME_MSG(mj, mn)
+
 #define VGA_WIDTH 80
 #define VGA_HEIGHT 25
 
