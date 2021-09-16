@@ -11,8 +11,9 @@ on additional(optional) features for the OS, although I will most likely not com
 - [x] Protected-mode I/O routines
 - [x] Basic kernel
 - [x] Basic graphics
-- [ ] Write syscalls for the kernel
-- [ ] Keyboard I/O
+- [x] Keyboard I/O
+- [ ] Keycode to ASCII
+- [ ] Reliable syscalls
 
 ## How to run
 To run GL-DOS, you need the following tools:

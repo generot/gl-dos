@@ -11,7 +11,14 @@ word vchar_to_word(vchar vc) {
 	return res;
 }
 
-int kputs(const char *str, vchar attr, int x, int y) {
+int kputc(vchar c, int x, int y) {
+	word *const vga_base_addr = VGA_ADDR;
+	int offset = x + y * VGA_WIDTH;
+
+	vga_base_addr[offset] = vchar_to_word(c);
+}
+
+int kwrite(const char *str, vchar attr, int x, int y) {
 	word *const vga_base_addr = VGA_ADDR;
 	int init_x = x;
 
@@ -26,7 +33,21 @@ int kputs(const char *str, vchar attr, int x, int y) {
 	return x - init_x;
 }
 
-void kclear_screen(vchar attr) {
+int kinput(void) {
+	int keycode = 0;
+	
+	asm volatile (
+		"in $0x60, %%eax\n"
+		"movl %%eax, %0\n"
+		: "=r" (keycode)
+		:
+		: "eax"
+	);
+
+	return keycode;
+}
+
+void kclear(vchar attr) {
 	word *const vga_base_addr = VGA_ADDR;
 
 	for(int i = 0; i < VGA_WIDTH * VGA_HEIGHT; i++)

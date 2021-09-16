@@ -2,7 +2,7 @@
 #define __GLKERNEL_H__
 
 #define GL_VERSION_MAJOR 0
-#define GL_VERSION_MINOR 4
+#define GL_VERSION_MINOR 5
 
 #define GL_WELCOME_MSG(major, minor)	\
 	"GL-DOS v."#major"."#minor" - Ring 0(Kernel space). "	\
@@ -28,7 +28,11 @@ typedef struct {
 
 word vchar_to_word(vchar vc);
 
-int kputs(const char *str, vchar attr, int x, int y);
-void kclear_screen(vchar attr);
+int kinput(void);
+
+int kputc(vchar c, int x, int y);
+int kwrite(const char *str, vchar attr, int x, int y);
+
+void kclear(vchar attr);
 
 #endif //__GLKERNEL_H__
