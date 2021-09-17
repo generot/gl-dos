@@ -20,11 +20,11 @@ COBJ=$(patsubst $(SRC)/kernel/%.c, $(BIN)/%.o, $(wildcard $(SRC)/kernel/*.c))
 KENTRY_ADDR=0x9000
 
 run: $(BIN)/os.bin
-	qemu-img resize -f raw $< +5K
 	$(QEMU) -drive format=raw,file=$< -L $(QEMULIB)
 
 os: kernel boot
 	cat $(BIN)/boot.bin $(BIN)/kernel.bin > $(BIN)/os.bin
+	qemu-img resize -f raw $(BIN)/os.bin +10M
 
 kernel: $(BIN)/kentry.o $(COBJ)
 	$(LD) -o $(BIN)/kernel.bin -Ttext $(KENTRY_ADDR) $^ $(LFLAGS)
