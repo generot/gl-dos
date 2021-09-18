@@ -33,8 +33,14 @@ int kwrite(const char *str, vchar attr, int x, int y) {
 	return x - init_x;
 }
 
-int kinput(void) {
-	int keycode = 0;
+void ksleep(unsigned long long dur) {
+	while(dur--) {
+		asm volatile("nop\n");
+	}
+}
+
+dword kinput(void) {
+	dword keycode = 0;
 	
 	asm volatile (
 		"in $0x60, %%eax\n"
@@ -44,7 +50,7 @@ int kinput(void) {
 		: "eax"
 	);
 
-	return keycode;
+	return keycode % 256;
 }
 
 void kclear(vchar attr) {

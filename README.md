@@ -11,8 +11,8 @@ on additional(optional) features for the OS, although I will most likely not com
 - [x] Protected-mode I/O routines
 - [x] Basic kernel
 - [x] Basic graphics
-- [x] Keyboard I/O
-- [ ] Keycode to ASCII
+- [x] Keyboard drivers
+- [x] Keycode to ASCII
 - [ ] Reliable syscalls
 
 ## How to run

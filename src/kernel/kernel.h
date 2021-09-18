@@ -18,6 +18,7 @@
 
 typedef unsigned char byte;
 typedef unsigned short word;
+typedef unsigned int dword;
 
 typedef struct {
 	byte char_code;
@@ -28,11 +29,12 @@ typedef struct {
 
 word vchar_to_word(vchar vc);
 
-int kinput(void);
+dword kinput(void);
 
 int kputc(vchar c, int x, int y);
 int kwrite(const char *str, vchar attr, int x, int y);
 
+void ksleep(unsigned long long dur);
 void kclear(vchar attr);
 
 #endif //__GLKERNEL_H__

@@ -1,19 +1,18 @@
 #include "api.h"
+#include "keycode_lut.h"
 
-int gl_print_int(vchar val, int x, int y) {
+int gl_print_int(int val, vchar col, int x, int y) {
 	char digits[20] = {[0 ... 18] = '0', 0};
 	int i;
 
-	for(i = 0; i < 20 && val.char_code; i++) {
-		digits[20 - i - 2] = (val.char_code % 10) + '0';
-		val.char_code /= 10;
+	for(i = 0; i < 20 && val; i++) {
+		digits[20 - i - 2] = (val % 10) + '0';
+		val /= 10;
 	}
 
-	val.char_code = 0;
-	kwrite(digits, val, x, y);
+	kwrite(digits, col, x, y);
 }
 
-char gl_keycode_to_char(int keycode) {
-	//Unimplemented.
-	return -1;
+byte gl_keycode_to_char(int keycode) {
+	return (byte)keycode_lut[keycode];
 }
