@@ -2,7 +2,7 @@
 #define __GLKERNEL_H__
 
 #define GL_VERSION_MAJOR 0
-#define GL_VERSION_MINOR 5
+#define GL_VERSION_MINOR 8
 
 #define GL_WELCOME_MSG(major, minor)	\
 	"GL-DOS v."#major"."#minor" - Ring 0(Kernel space). "	\
