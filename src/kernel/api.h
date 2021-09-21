@@ -1,8 +1,6 @@
 #ifndef __GL_API__
 #define __GL_API__
 
-#define UP_DOWN_DIFF 128
-
 #include "kernel.h"
 
 typedef unsigned long int gl_size;
