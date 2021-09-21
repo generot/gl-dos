@@ -9,20 +9,19 @@ int kmain(void) {
 
 	int shell_ix = 0;
 
+	vchar back_col = { .background = 1 };
 	vchar some_col = {
 		.foreground = 3,
 		.background = 0,
 		.blink = 0
 	};
 
-	vchar back_col = { .background = 1 };
-
 	kclear(back_col);
 	kwrite(buff, some_col, 0, 2);
 
 	while(1) {
 		int inp = kinput();
-		if(inp < 144) {
+		if(inp < 100) {
 			shell_buff[shell_ix++] = gl_keycode_to_char(inp);
 			ksleep(180000 * 128);
 		}

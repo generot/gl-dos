@@ -14,5 +14,8 @@ int gl_print_int(int val, vchar col, int x, int y) {
 }
 
 byte gl_keycode_to_char(int keycode) {
+	if(!keycode_lut[keycode])
+		return '-';
+
 	return (byte)keycode_lut[keycode];
 }
